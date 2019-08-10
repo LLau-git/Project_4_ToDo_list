@@ -1,3 +1,15 @@
+
+input[type = 'checkbox']{
+    height: 20px;
+    width: 20px;
+    border: none;
+    order: -1;
+}
+
+input[type = 'checkbox']:checked+label{
+    color: grey;
+    text-decoration: line-through;
+}
 .done{
     text-decoration: line-through;
 }

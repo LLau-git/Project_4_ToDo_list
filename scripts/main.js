@@ -1,3 +1,5 @@
+const clear = document.querySelector(".clear");
+const dateElement = document.getElementById("date");
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
@@ -16,7 +18,7 @@ function createListElement() {
     //button delete for new li item
 var btnDelete = document.createElement("button");
 
-    btnDelete.appendChild(document.createTextNode("Delete!"));
+    btnDelete.appendChild(document.createTextNode("Delete"));
     li.appendChild(btnDelete);
     btnDelete.onclick = removeParent;
 }
@@ -42,14 +44,12 @@ input.addEventListener("keypress", addListAfterKeypress);
 
 // mark as done! 
 
-
-function strikeThrough(e) {
-    if (e.target.tagName === "listItems") {
-        e.target.classList.toggle("done");
+function toggleClassDoneOnAndOff(event) {
+    if (event.target.tagName === "LI") {
+        event.target.classList.toggle("done");
     }
 }
-ul.addEventListener("click", strikeThrough);
-
+ul.addEventListener("click", toggleClassDoneOnAndOff);
 
 // adds delete button to old items;
 function listLenght() {
@@ -58,7 +58,7 @@ function listLenght() {
 
 function deleteButton() {
     var btn = document.createElement("button");
-    btn.appendChild(document.createTextNode("Delete!"));
+    btn.appendChild(document.createTextNode("Delete"));
     listItems[i].appendChild(btn);
     btn.onclick=removeParent;
 }
